@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Safari | Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="res/bootstrap@5.0.0-alpha2.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="res/chartist.min.css">
+
+</head>
+<body>
+    <img class="logo" src="IMG-20201104-WA0052.jpg">
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <div class="item">
+            <img id="player" class="i1 rounded-circle" src="IMG-20201103-WA0016.jpg" alt="Rock Hand" style="width: 170px; height:150px;" >
+            <span class="caption" style="font-weight: 600">Player</span>
+            <select id="mySelect">
+              <option value="rock">Rock</option>
+              <option value="paper">Paper</option>
+              <option value="scissors">Scissors</option>
+            </select>
+            <br><br>
+            <input type="button" onclick="getIndex()" 
+           value="Play" style="font-weight: 700;">
+          </div>
+          <p id="demo"></p>
+        </div>
+        <div class="column">
+          <div class="item">
+             <img id="computer" class="i2 rounded-circle" src="IMG-20201103-WA0016.jpg" alt="Question" style="width: 170px; height: 150px; border-style: solid; border-width: 10px;border-color: red;" >
+              <span class="caption" style="font-weight: 600">Computer</span>      
+          </div>
+        </div>
+        <nav>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="nav-link" style="color: white;">Rules</span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <img style="width: 50%; margin-top: 20px; border-style: double; border-width: 10px;border-color: blue; " src="20201104_141851.jpg">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+                  <span class="nav-link btn-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </button>
+              </li>
+              </ul>
+            </div>
+            </div>
+        </nav>
+      </div>
+   </div>  
+   <img class="logo" src="IMG-20201104-WA0054.jpg">
+    <nav>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+        <span class="nav-link" style="color: white;">Rules</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <img style="width: 50%; margin-top: 20px; border-style: double; border-width: 10px;border-color: blue; " src="IMG-20201104-WA0053.jpg">
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+              <span class="nav-link btn-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script>
+      function getIndex() {
+  var x=  document.getElementById("mySelect").selectedIndex;
+  var min=0; 
+  var max=3;  
+  var random =Math.floor(Math.random() * (+max - +min)) + +min; 
+  var string="";
+  if((random==0)&&(x==0))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0016.jpg";
+  string="Draw!";
+  }
+  if((random==0)&&(x==1))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0016.jpg";
+      document.getElementById("player").src = "IMG-20201103-WA0015.jpg";
+    string="Player Wins!";
+  }
+  if((random==0)&&(x==2))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0016.jpg";
+    document.getElementById("player").src = "IMG-20201103-WA0014.jpg";
+         string="Computer Wins!";
+  }
+  if((random==1)&&(x==0))
+  {
+  document.getElementById("player").src = "IMG-20201103-WA0016.jpg";
+  document.getElementById("computer").src = "IMG-20201103-WA0015.jpg";
+           string="Computer Wins!";
+  }
+  if((random==1)&&(x==1))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0015.jpg";
+    document.getElementById("player").src = "IMG-20201103-WA0015.jpg";
+      string="Draw!";
+  }
+  if((random==1)&&(x==2))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0015.jpg";
+      document.getElementById("player").src = "IMG-20201103-WA0014.jpg";
+      string="Player Wins!";
+  }
+   if((random==2)&&(x==0))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0014.jpg";
+  document.getElementById("player").src = "IMG-20201103-WA0016.jpg";
+    string="Player Wins!";
+  }
+  if((random==2)&&(x==1))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0014.jpg";
+      document.getElementById("player").src = "IMG-20201103-WA0015.jpg";
+     string="Computer Wins!";
+  }
+  if((random==2)&&(x==2))
+  {
+  document.getElementById("computer").src = "IMG-20201103-WA0014.jpg";
+      document.getElementById("player").src = "IMG-20201103-WA0014.jpg";
+      string="Draw!";
+
+
+  }
+    document.getElementById("demo").innerHTML = string;
+
+}
+    </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
